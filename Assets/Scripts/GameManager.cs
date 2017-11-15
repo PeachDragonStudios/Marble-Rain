@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
 
     private float[] xDropPositions = new float[] { -1.18f, -3.41f, 1.1f, 3.35f };
 
-    public GameObject[] marbles;
+    public Marble[] marbles;
 
     #endregion
 

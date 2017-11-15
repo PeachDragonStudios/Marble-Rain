@@ -7,7 +7,7 @@ public class MarbleController : MonoBehaviour {
 
     public float timeStop = 3f;
 
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
 
     private float distance = 10f;
     private float stopTime;
