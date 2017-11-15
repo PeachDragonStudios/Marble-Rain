@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Goal
+  - Red
+  - Blue
+  - Yellow
+  - Green
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Background
+  - Marble
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 767880931
+    locked: 0
+  - name: Marble
+    uniqueID: 4211374463
+    locked: 0
+  - name: Goal
+    uniqueID: 324734473
+    locked: 0
+  - name: Score Background
+    uniqueID: 778142817
+    locked: 0
+  - name: Score
+    uniqueID: 1715652947
+    locked: 0
