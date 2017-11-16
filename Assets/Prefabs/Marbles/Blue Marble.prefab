@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 50145697422597048}
   - component: {fileID: 58628456144594242}
   - component: {fileID: 114335100103696416}
-  - component: {fileID: 114723310055011000}
+  - component: {fileID: 114059001011830140}
   m_Layer: 9
   m_Name: Blue Marble
   m_TagString: Blue
@@ -79,6 +79,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.8
+--- !u!114 &114059001011830140
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1960481651957756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5fb255b10627047ac5263685883a6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114335100103696416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,18 +101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ce0188dd2b1d94fbbe219de92827fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114723310055011000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1960481651957756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb5fb255b10627047ac5263685883a6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeStop: 3
 --- !u!212 &212821565200735508
 SpriteRenderer:
   m_ObjectHideFlags: 1

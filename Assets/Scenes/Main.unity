@@ -403,6 +403,7 @@ GameObject:
   - component: {fileID: 252342497}
   - component: {fileID: 252342496}
   - component: {fileID: 252342498}
+  - component: {fileID: 252342499}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -423,12 +424,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalPoints: 0
   multiplier: 1
-  timer: 99
-  marbles:
+  timer: 120
+  originalGravityScale: 0.5
+  marblePrefabs:
   - {fileID: 114335100103696416, guid: 1e5c03028a410c541871f6c65b73117f, type: 2}
   - {fileID: 114796424574381500, guid: fe56e32cb515f0642bf8afbee0a15c02, type: 2}
   - {fileID: 114003949477940040, guid: cb5e1993ee80e6b489776ed4b9ef6043, type: 2}
   - {fileID: 114943948789526946, guid: 85c87ccf01959aa4d9a731db3509f053, type: 2}
+  spawnedMarbles: []
 --- !u!4 &252342497
 Transform:
   m_ObjectHideFlags: 0
@@ -454,6 +457,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
+--- !u!114 &252342499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 252342495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7af23cfc3d1e854a82ec16cc35a6c00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeStop: 3
 --- !u!1 &304418167
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,24 +759,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4292951623718524, guid: cb5e1993ee80e6b489776ed4b9ef6043,
     type: 2}
   m_PrefabInternal: {fileID: 1158018796}
---- !u!114 &1236164359 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114723310055011000, guid: 1e5c03028a410c541871f6c65b73117f,
-    type: 2}
-  m_PrefabInternal: {fileID: 7996773}
-  m_Script: {fileID: 11500000, guid: fb5fb255b10627047ac5263685883a6d, type: 3}
---- !u!114 &1252090374 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114907699526486388, guid: 85c87ccf01959aa4d9a731db3509f053,
-    type: 2}
-  m_PrefabInternal: {fileID: 1998021624}
-  m_Script: {fileID: 11500000, guid: fb5fb255b10627047ac5263685883a6d, type: 3}
---- !u!114 &1313738056 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114827894488998312, guid: cb5e1993ee80e6b489776ed4b9ef6043,
-    type: 2}
-  m_PrefabInternal: {fileID: 1158018796}
-  m_Script: {fileID: 11500000, guid: fb5fb255b10627047ac5263685883a6d, type: 3}
 --- !u!1 &1413246127
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,7 +903,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1313738056}
+      - m_Target: {fileID: 252342499}
         m_MethodName: OnStasisButton
         m_Mode: 1
         m_Arguments:
@@ -916,40 +913,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
-      - m_Target: {fileID: 1236164359}
-        m_MethodName: OnStasisButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 0
-      - m_Target: {fileID: 1252090374}
-        m_MethodName: OnStasisButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 0
-      - m_Target: {fileID: 2013281030}
-        m_MethodName: OnStasisButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1507707759
@@ -1393,12 +1357,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4604848320028610, guid: 85c87ccf01959aa4d9a731db3509f053,
     type: 2}
   m_PrefabInternal: {fileID: 1998021624}
---- !u!114 &2013281030 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114873640359616834, guid: fe56e32cb515f0642bf8afbee0a15c02,
-    type: 2}
-  m_PrefabInternal: {fileID: 991537527}
-  m_Script: {fileID: 11500000, guid: fb5fb255b10627047ac5263685883a6d, type: 3}
 --- !u!1 &2033387484
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,7 +1476,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb5fb255b10627047ac5263685883a6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeStop: 3
 --- !u!50 &2063127767
 Rigidbody2D:
   serializedVersion: 4

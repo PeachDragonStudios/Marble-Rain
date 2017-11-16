@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Marble : MonoBehaviour {
     
-    private Rigidbody2D rb;
+    //private Rigidbody2D rb;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,7 +17,8 @@ public class Marble : MonoBehaviour {
                 GameManager.instance.AddPoints(100);
             }
 
-            Destroy(this.gameObject);
+            GameManager.instance.spawnedMarbles.Remove(this);
+            Destroy(gameObject);
         }
     }
 }

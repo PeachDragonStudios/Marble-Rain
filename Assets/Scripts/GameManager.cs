@@ -7,19 +7,22 @@ public class GameManager : MonoBehaviour {
 
     #region Variables
 
+    // Score variables
     public int totalPoints = 0;
     public int multiplier = 1;
+    private Text scoreText;
 
+    // Timer variables
     public float timer = 99f;
     private int minutes = 0;
     private int seconds = 0;
-
-    private Text scoreText;
     private Text timerText;
 
+    // Marble variables
     private float[] xDropPositions = new float[] { -1.18f, -3.41f, 1.1f, 3.35f };
-
-    public Marble[] marbles;
+    public float originalGravityScale;
+    public Marble[] marblePrefabs;
+    [HideInInspector] public List<Marble> spawnedMarbles;
 
     #endregion
 
@@ -73,9 +76,11 @@ public class GameManager : MonoBehaviour {
         int randomLane = Random.Range(0, xDropPositions.Length);
         Vector3 dropPosition = new Vector3(xDropPositions[randomLane], 5.8f, 0f);
 
-        int randomMarble = Random.Range(0, marbles.Length);
+        int randomMarble = Random.Range(0, marblePrefabs.Length);
 
-        Instantiate(marbles[randomMarble], dropPosition, Quaternion.identity);
+        Marble newMarble = Instantiate(marblePrefabs[randomMarble], dropPosition, Quaternion.identity);
+        spawnedMarbles.Add(newMarble);
+        newMarble.GetComponent<Rigidbody2D>().gravityScale = originalGravityScale;
     } 
 
     private void CountDownTimer()
