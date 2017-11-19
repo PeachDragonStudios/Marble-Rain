@@ -49,20 +49,25 @@ public class GameManager : MonoBehaviour {
         seconds = (int)timer % 60;
         timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
 
-        SpawnMarble();
+        //SpawnMarble();
+        InvokeRepeating("SpawnMarble", 0f, 2f);
+
     }
 
     #endregion
 
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.A))
         {
             SpawnMarble();
         }
+        */
 
         CountDownTimer();
     }
+
 
     public void AddPoints(int points)
     {
