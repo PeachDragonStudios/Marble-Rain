@@ -7,13 +7,16 @@ public class GameManager : MonoBehaviour {
 
     #region Variables
 
+    //AutoSpawn variables
+    private int frameCount;
+
     // Score variables
     public int totalPoints = 0;
     public int multiplier = 1;
     private Text scoreText;
 
     // Timer variables
-    public float timer = 99f;
+    public float timer = 0;
     private int minutes = 0;
     private int seconds = 0;
     private Text timerText;
@@ -49,8 +52,8 @@ public class GameManager : MonoBehaviour {
         seconds = (int)timer % 60;
         timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
 
-        //SpawnMarble();
-        InvokeRepeating("SpawnMarble", 0f, 2f);
+        //InvokeRepeating("SpawnMarble", 0f, 2f);
+        frameCount = 0;
 
     }
 
@@ -65,7 +68,14 @@ public class GameManager : MonoBehaviour {
         }
         */
 
-        CountDownTimer();
+        CountUpTimer();
+    }
+
+     void FixedUpdate()
+    {
+        AutoSpawnMarble();
+        
+
     }
 
 
@@ -88,13 +98,48 @@ public class GameManager : MonoBehaviour {
         newMarble.GetComponent<Rigidbody2D>().gravityScale = originalGravityScale;
     } 
 
-    private void CountDownTimer()
+    private void CountUpTimer()
     {
-        timer -= Time.deltaTime;
+        timer += Time.deltaTime;
 
         minutes = (int)timer / 60;
         seconds = (int)timer % 60;
 
         timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
+    }
+
+    private void AutoSpawnMarble()
+    {
+        if (frameCount >= 110 && timer <= 15f)
+        {
+            SpawnMarble();
+            frameCount = 0;
+        }
+        else if (frameCount >= 90 && timer > 15f && timer <= 30f)
+        {
+            SpawnMarble();
+            frameCount = 0;
+        }
+        else if (frameCount >= 70 && timer > 30f && timer <= 60f)
+        {
+            SpawnMarble();
+            frameCount = 0;
+        }
+        else if (frameCount >= 55 && timer > 60f && timer <= 90f)
+        {
+            SpawnMarble();
+            frameCount = 0;
+        }
+        else if (frameCount >= 40 && timer > 90f && timer <= 130f)
+        {
+            SpawnMarble();
+            frameCount = 0;
+        }
+        else if (frameCount >= 25 && timer > 130f)
+        {
+            SpawnMarble();
+            frameCount = 0;
+        }
+        else frameCount++;
     }
 }

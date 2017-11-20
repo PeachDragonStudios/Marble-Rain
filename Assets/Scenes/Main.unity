@@ -353,7 +353,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 15}
+  m_Size: {x: 0.4, y: 15}
   m_EdgeRadius: 0
 --- !u!61 &216785543
 BoxCollider2D:
@@ -378,7 +378,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 15}
+  m_Size: {x: 0.4, y: 15}
   m_EdgeRadius: 0
 --- !u!61 &216785544
 BoxCollider2D:
@@ -403,7 +403,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 15}
+  m_Size: {x: 0.4, y: 15}
   m_EdgeRadius: 0
 --- !u!61 &216785546
 BoxCollider2D:
@@ -442,7 +442,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 6.2, y: 0}
+  m_Offset: {x: 6.27, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -486,7 +486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalPoints: 0
   multiplier: 1
-  timer: 120
+  timer: 0
   originalGravityScale: 0.5
   marblePrefabs:
   - {fileID: 114335100103696416, guid: 1e5c03028a410c541871f6c65b73117f, type: 2}
