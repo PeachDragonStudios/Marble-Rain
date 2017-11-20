@@ -2,23 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
     #region Variables
 
     //AutoSpawn variables
-    private int frameCount;
+    private int frameCount = 0;
 
-    // Score variables
-    public int totalPoints = 0;
-    public int multiplier = 1;
-    private Text scoreText;
+    private Text gameOverScoreText;
+    private GameObject gameOverScreen;
 
     // Timer variables
-    public float timer = 0;
-    private int minutes = 0;
-    private int seconds = 0;
+    private float timer;
+    private int minutes;
+    private int seconds;
     private Text timerText;
 
     // Marble variables
@@ -45,47 +44,80 @@ public class GameManager : MonoBehaviour {
         }
 
         DontDestroyOnLoad(gameObject);
-        scoreText = GameObject.Find("Score Text").GetComponent<Text>();
-        timerText = GameObject.Find("Timer Text").GetComponent<Text>();
 
-        minutes = (int)timer / 60;
-        seconds = (int)timer % 60;
-        timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
-
-        //InvokeRepeating("SpawnMarble", 0f, 2f);
-        frameCount = 0;
-
+        Time.timeScale = 0f;
     }
 
     #endregion
 
-    void Update()
+    void InitGame()
     {
-        /*
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            SpawnMarble();
-        }
-        */
+        // Get all text components
+        timerText = GameObject.Find("Timer Text").GetComponent<Text>();
+        gameOverScreen = GameObject.Find("Game Over Screen");
+        gameOverScoreText = GameObject.Find("Game Over Score").GetComponent<Text>();
+        gameOverScreen.SetActive(false);
 
+        ScoreManager.instance.ResetScore();  // Reset score
+
+        // Reset all time variables
+        frameCount = 0;
+        timer = 0f;
+        minutes = (int)timer / 60;
+        seconds = (int)timer % 60;
+        timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
+
+        // Reset the number of lives
+        LivesManager.instance.ResetLives();
+
+        // Begin the game by bringing time scale up to 1f
+        Time.timeScale = 1f;
+    }
+
+    #region Scene Management
+
+    void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+    {
+        // Call InitGame to initialize our level.
+        InitGame();
+    }
+
+    void OnEnable()
+    {
+        // Tell our 'OnLevelFinishedLoading' function to start listening for a scene change event as soon as this script is enabled.
+        SceneManager.sceneLoaded += OnLevelFinishedLoading;
+    }
+
+    void OnDisable()
+    {
+        // Tell our 'OnLevelFinishedLoading' function to stop listening for a scene change event as soon as this script is disabled.
+        // Remember to always have an unscubscription for every delegate you subscribe to!
+        SceneManager.sceneLoaded -= OnLevelFinishedLoading;
+    }
+
+    #endregion
+
+    // Is called 50 times in a second at a fixed rate
+    void FixedUpdate()
+    {
         CountUpTimer();
-    }
 
-     void FixedUpdate()
-    {
         AutoSpawnMarble();
-        
-
     }
 
-
-    public void AddPoints(int points)
+    private void CountUpTimer()
     {
-        totalPoints += (points * multiplier);
+        timer += Time.deltaTime;
 
-        scoreText.text = "Score: " + totalPoints.ToString();
+        minutes = (int)timer / 60;
+        seconds = (int)timer % 60;
+
+        timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
     }
 
+    #region Marble Spawning
+
+    // Spawns a random marble at a random location
     private void SpawnMarble()
     {
         int randomLane = Random.Range(0, xDropPositions.Length);
@@ -96,16 +128,6 @@ public class GameManager : MonoBehaviour {
         Marble newMarble = Instantiate(marblePrefabs[randomMarble], dropPosition, Quaternion.identity);
         spawnedMarbles.Add(newMarble);
         newMarble.GetComponent<Rigidbody2D>().gravityScale = originalGravityScale;
-    } 
-
-    private void CountUpTimer()
-    {
-        timer += Time.deltaTime;
-
-        minutes = (int)timer / 60;
-        seconds = (int)timer % 60;
-
-        timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
     }
 
     private void AutoSpawnMarble()
@@ -142,4 +164,14 @@ public class GameManager : MonoBehaviour {
         }
         else frameCount++;
     }
+
+    #endregion
+
+    public void DisplayGameOver()
+    {
+        gameOverScoreText.text = "Your Score: " + ScoreManager.instance.totalPoints;
+
+        Time.timeScale = 0f;
+        gameOverScreen.SetActive(true);
+    }    
 }

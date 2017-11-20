@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MarbleManager : MonoBehaviour {
-
+public class MarbleManager : MonoBehaviour
+{
     public float timeStop = 3f;
-    //public float originalGravityScale;
 
     private float stopTime;
     private Vector2 ZeroVelocity = new Vector2(0f, 0f);

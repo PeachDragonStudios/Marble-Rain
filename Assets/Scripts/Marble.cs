@@ -4,8 +4,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Marble : MonoBehaviour {
-    
-    //private Rigidbody2D rb;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,7 +12,12 @@ public class Marble : MonoBehaviour {
             if (collision.gameObject.tag == tag)
             {
                 //Debug.Log("These two objects were the same color");
-                GameManager.instance.AddPoints(100);
+                ScoreManager.instance.AddPoints(10);
+            }
+            else
+            {
+                LivesManager.instance.LoseLife();
+                ScoreManager.instance.ResetMultiplier();
             }
 
             GameManager.instance.spawnedMarbles.Remove(this);

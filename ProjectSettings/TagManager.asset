@@ -55,9 +55,3 @@ TagManager:
   - name: Goal
     uniqueID: 324734473
     locked: 0
-  - name: Score Background
-    uniqueID: 778142817
-    locked: 0
-  - name: Score
-    uniqueID: 1715652947
-    locked: 0
