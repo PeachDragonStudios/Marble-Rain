@@ -465,7 +465,6 @@ GameObject:
   - component: {fileID: 252342497}
   - component: {fileID: 252342496}
   - component: {fileID: 252342498}
-  - component: {fileID: 252342499}
   - component: {fileID: 252342500}
   - component: {fileID: 252342501}
   m_Layer: 0
@@ -518,18 +517,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
---- !u!114 &252342499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 252342495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7af23cfc3d1e854a82ec16cc35a6c00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeStop: 3
 --- !u!114 &252342500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1158,6 +1145,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1156976214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1156976216}
+  - component: {fileID: 1156976215}
+  m_Layer: 0
+  m_Name: Stasis Script
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1156976215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1156976214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f6d09928a085a488430c3e29484ba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeStop: 3
+--- !u!4 &1156976216
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1156976214}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 476.44495, y: 318.81873, z: -3.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1158018796
 Prefab:
   m_ObjectHideFlags: 0
@@ -1375,7 +1403,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1507707756}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.099998, y: -280.8, z: 0}
+  m_LocalPosition: {x: -19.099998, y: -280, z: 0}
   m_LocalScale: {x: 1.8823686, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1683381600}
@@ -1383,7 +1411,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -19.099998, y: -280.8}
+  m_AnchoredPosition: {x: -19.099998, y: -280}
   m_SizeDelta: {x: 189.8, y: 38.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1507707758
@@ -1425,7 +1453,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252342499}
+      - m_Target: {fileID: 1156976215}
         m_MethodName: OnStasisButton
         m_Mode: 1
         m_Arguments:

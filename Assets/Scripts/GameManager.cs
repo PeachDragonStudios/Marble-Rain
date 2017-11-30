@@ -45,11 +45,15 @@ public class GameManager : MonoBehaviour {
 
         DontDestroyOnLoad(gameObject);
 
+        // Before the game is loaded, the game time should not start
         Time.timeScale = 0f;
     }
 
     #endregion
 
+    /*
+     * Used to initialize the game and its components
+     */
     void InitGame()
     {
         // Get all text components
@@ -97,14 +101,21 @@ public class GameManager : MonoBehaviour {
 
     #endregion
 
-    // Is called 50 times in a second at a fixed rate
+    /*
+     * Fixed update is called 50 times in a second at a fixed rate
+     */
     void FixedUpdate()
     {
+        // Count up the timer consistently
         CountUpTimer();
 
+        // Spawn marbles consistently
         AutoSpawnMarble();
     }
 
+    /*
+     * Used to calculate the game timer
+     */
     private void CountUpTimer()
     {
         timer += Time.deltaTime;
@@ -117,22 +128,32 @@ public class GameManager : MonoBehaviour {
 
     #region Marble Spawning
 
-    // Spawns a random marble at a random location
+    /*
+     * Spawns a random marble at a random location
+     */
     private void SpawnMarble()
     {
-        int randomLane = Random.Range(0, xDropPositions.Length);
-        Vector3 dropPosition = new Vector3(xDropPositions[randomLane], 5.8f, 0f);
+        
+        int randomLane = Random.Range(0, xDropPositions.Length); // Choose a drop position out of a list
+        Vector3 dropPosition = new Vector3(xDropPositions[randomLane], 5.8f, 0f); // Sets the drop position at a lane and a set height on the board
 
-        int randomMarble = Random.Range(0, marblePrefabs.Length);
+        int randomMarble = Random.Range(0, marblePrefabs.Length); // Choose a random marble out of a list
 
-        Marble newMarble = Instantiate(marblePrefabs[randomMarble], dropPosition, Quaternion.identity);
-        spawnedMarbles.Add(newMarble);
-        newMarble.GetComponent<Rigidbody2D>().gravityScale = originalGravityScale;
+        Marble newMarble = Instantiate(marblePrefabs[randomMarble], dropPosition, Quaternion.identity); // Spawn a new marble on the board
+        spawnedMarbles.Add(newMarble); // Add the new spawned marble to a list of current marbles on the board
+        newMarble.GetComponent<Rigidbody2D>().gravityScale = originalGravityScale; // Ensure that the marble has a set gravity scale
     }
 
+    /*
+     * Will spawn a marble based on time passed and the count of the method called
+     */
     private void AutoSpawnMarble()
     {
-        if (frameCount >= 110 && timer <= 15f)
+        if (StasisScript.isTimeStopped) // If the stasis button is pressed, it will not spawn any marbles
+        {
+            return;
+        }
+        else if (frameCount >= 110 && timer <= 15f)
         {
             SpawnMarble();
             frameCount = 0;
@@ -167,6 +188,9 @@ public class GameManager : MonoBehaviour {
 
     #endregion
 
+    /*
+     * Display the game over screen after lives run out
+     */
     public void DisplayGameOver()
     {
         gameOverScoreText.text = "Your Score: " + ScoreManager.instance.totalPoints;
