@@ -9,6 +9,7 @@ TagManager:
   - Blue
   - Yellow
   - Green
+  - Gold
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - 
   - Background
   - Marble
-  - 
+  - Arrows
   - 
   - 
   - 
@@ -48,6 +49,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 767880931
+    locked: 0
+  - name: Arrows
+    uniqueID: 326167355
     locked: 0
   - name: Marble
     uniqueID: 4211374463

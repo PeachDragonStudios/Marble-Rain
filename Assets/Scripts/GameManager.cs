@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour {
     public Marble[] marblePrefabs;
     [HideInInspector] public List<Marble> spawnedMarbles;
 
+    public GoldMarble[] specialMarblePrefabs;
+    [HideInInspector] public List<GoldMarble> spawnedSpecialMarbles;
+
     #endregion
 
     #region Singleton
@@ -76,6 +79,9 @@ public class GameManager : MonoBehaviour {
 
         // Begin the game by bringing time scale up to 1f
         Time.timeScale = 1f;
+
+        //Gold Marble Spawn
+        InvokeRepeating("SpawnSpecialMarble", 12f, 15f);
     }
 
     #region Scene Management
@@ -143,6 +149,21 @@ public class GameManager : MonoBehaviour {
         spawnedMarbles.Add(newMarble); // Add the new spawned marble to a list of current marbles on the board
         newMarble.GetComponent<Rigidbody2D>().gravityScale = originalGravityScale; // Ensure that the marble has a set gravity scale
     }
+
+    //New for gold marble
+    //should be later edited along with GoldMarble.cs to spawn heart and shadow special Marbles
+    public void SpawnSpecialMarble()
+    {
+        int randomLane = Random.Range(0, xDropPositions.Length); //Uses same drop positions as SpawnMarble
+        Vector3 dropPosition = new Vector3(xDropPositions[randomLane], 5.8f, 0f); //Same drop positioning as Spawn Marble
+        GoldMarble newSpecialMarble = Instantiate(specialMarblePrefabs[1], dropPosition, Quaternion.identity); //Should spawn gold marble always currently
+        ScoreManager.instance.IncrementGoldMod();
+
+        spawnedSpecialMarbles.Add(newSpecialMarble); // Add the new spawned marble to a list of current marbles on the board
+        newSpecialMarble.GetComponent<Rigidbody2D>().gravityScale = originalGravityScale; // Ensure that the marble has a set gravity scale
+    }
+    //end new code for gold marble
+
 
     /*
      * Will spawn a marble based on time passed and the count of the method called

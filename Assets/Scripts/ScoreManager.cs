@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour {
     // Score variables
     public double totalPoints;
     public double multiplier;
+    public double goldmod; //new variable for gold marbles
     private Text scoreText;
 
     #region Singleton
@@ -26,7 +27,7 @@ public class ScoreManager : MonoBehaviour {
     // Adds points to the player's score
     public void AddPoints(int points)
     {
-        totalPoints += ((double)points * multiplier);
+        totalPoints += ((double)points * multiplier * goldmod); //goldmod is new for gold marbles
 
         scoreText.text = "Score: " + totalPoints.ToString();
 
@@ -35,6 +36,18 @@ public class ScoreManager : MonoBehaviour {
             IncrementMultiplier();
         }
     }
+
+    //New for gold marble
+    public void IncrementGoldMod()
+    {
+        goldmod += 2;
+    }
+
+    public void DecrementGoldMod()
+    {
+        goldmod -= 2;
+    }
+    //end gold marble code
 
     public void IncrementMultiplier()
     {
@@ -50,5 +63,6 @@ public class ScoreManager : MonoBehaviour {
     {
         totalPoints = 0.0;
         multiplier = 1.0;
+        goldmod = 1.0;
     }
 }
