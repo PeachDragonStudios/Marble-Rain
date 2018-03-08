@@ -156,7 +156,10 @@ public class GameManager : MonoBehaviour {
     {
         int randomLane = Random.Range(0, xDropPositions.Length); //Uses same drop positions as SpawnMarble
         Vector3 dropPosition = new Vector3(xDropPositions[randomLane], 5.8f, 0f); //Same drop positioning as Spawn Marble
-        GoldMarble newSpecialMarble = Instantiate(specialMarblePrefabs[0], dropPosition, Quaternion.identity); //Should spawn gold marble always currently
+
+        int randomSpecialMarble = Random.Range(0, specialMarblePrefabs.Length);
+
+        GoldMarble newSpecialMarble = Instantiate(specialMarblePrefabs[randomSpecialMarble], dropPosition, Quaternion.identity); //Should spawn gold marble always currently
         ScoreManager.instance.IncrementGoldMod();
 
         spawnedSpecialMarbles.Add(newSpecialMarble); // Add the new spawned marble to a list of current marbles on the board

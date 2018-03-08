@@ -10,9 +10,16 @@ public class GoldMarble : MonoBehaviour {
     {
         if (collision.gameObject.transform.parent.CompareTag("Goal"))
         {
-
-            ScoreManager.instance.AddPoints(10);
-            ScoreManager.instance.DecrementGoldMod();
+            if (collision.gameObject.tag == "Shadow")
+            {
+                LivesManager.instance.LoseLife();
+                ScoreManager.instance.ResetMultiplier();
+            }
+            else
+            {
+                ScoreManager.instance.AddPoints(10);
+                ScoreManager.instance.DecrementGoldMod();
+            }
 
             GameManager.instance.spawnedSpecialMarbles.Remove(this);
             Destroy(gameObject);
