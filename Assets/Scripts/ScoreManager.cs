@@ -40,12 +40,27 @@ public class ScoreManager : MonoBehaviour {
     //New for gold marble
     public void IncrementGoldMod()
     {
-        goldmod += 2;
+        if(goldmod == 1)
+        {
+            goldmod++;
+        }
+        else
+        {
+            goldmod = goldmod * 2;
+        }
+        
     }
 
     public void DecrementGoldMod()
     {
-        goldmod -= 2;
+        if(goldmod == 2)
+        {
+            goldmod--;
+        }
+        else
+        {
+            goldmod = goldmod / 2;
+        }
     }
     //end gold marble code
 
