@@ -54,6 +54,9 @@ TagManager:
   - name: Arrows
     uniqueID: 326167355
     locked: 0
+  - name: MarbleEffects
+    uniqueID: 3565572263
+    locked: 0
   - name: Marble
     uniqueID: 4211374463
     locked: 0

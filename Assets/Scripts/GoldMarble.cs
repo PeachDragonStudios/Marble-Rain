@@ -10,7 +10,7 @@ public class GoldMarble : MonoBehaviour {
     {
         if (collision.gameObject.transform.parent.CompareTag("Goal"))
         {
-            if (collision.gameObject.tag == "Shadow")
+            if (gameObject.tag == "Shadow")
             {
                 LivesManager.instance.LoseLife();
                 ScoreManager.instance.ResetMultiplier();

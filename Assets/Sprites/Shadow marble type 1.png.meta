@@ -1,21 +1,13 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: a2b8079c8d26c754ca78543d2c19583b
-timeCreated: 1522283611
-licenseType: Free
-TextureImporter:
-  fileIDToRecycleName: {}
-=======
-guid: bb751909709c79f46ad98da2007afc4f
-timeCreated: 1520524624
+timeCreated: 1523037223
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Shadow marble cloud 1
+    21300000: Shadow 1
     21300002: Shadow marble
-    21300004: Shadow marble cloud 2
-    21300006: Shadow marble cloud 3
->>>>>>> 8650c462ebe0633c105084cc8be2e5c3529da025
+    21300004: Shadow 2
+    21300006: Shadow 3
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -48,15 +40,11 @@ TextureImporter:
     mipBias: -1
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<< HEAD
-  spriteMode: 1
-=======
   spriteMode: 2
->>>>>>> 8650c462ebe0633c105084cc8be2e5c3529da025
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -81,11 +69,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-<<<<<<< HEAD
-  spriteSheet:
-    serializedVersion: 2
-    sprites: []
-=======
   - buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -117,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Shadow marble cloud 1
+      name: Shadow 1
       rect:
         serializedVersion: 2
         x: 316
@@ -145,7 +128,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Shadow marble cloud 2
+      name: Shadow 2
       rect:
         serializedVersion: 2
         x: 320
@@ -159,7 +142,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Shadow marble cloud 3
+      name: Shadow 3
       rect:
         serializedVersion: 2
         x: 320
@@ -172,7 +155,6 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
->>>>>>> 8650c462ebe0633c105084cc8be2e5c3529da025
     outline: []
     physicsShape: []
   spritePackingTag: 
