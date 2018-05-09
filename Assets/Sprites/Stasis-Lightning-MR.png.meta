@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: eb122b48f9bcd1943baafd55d9adfdf2
 timeCreated: 1522428996
+=======
+guid: 57e8eaae9e6af714791822804a68eab3
+timeCreated: 1525904330
+>>>>>>> Logan
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
