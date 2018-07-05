@@ -159,6 +159,9 @@ public class GameManager : MonoBehaviour {
 
         int randomSpecialMarble = Random.Range(0, specialMarblePrefabs.Length);
 
+        //Script for testing specific special marbles
+        //int randomSpecialMarble = 0;
+
         GoldMarble newSpecialMarble = Instantiate(specialMarblePrefabs[randomSpecialMarble], dropPosition, Quaternion.identity); //Should spawn gold marble always currently
         ScoreManager.instance.IncrementGoldMod();
 
