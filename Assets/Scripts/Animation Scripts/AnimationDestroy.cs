@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class AnimationDestroy : MonoBehaviour {
 
+    public float delay = 0.1f;
+
 	// Use this for initialization
 	void Start () {
 
-        Destroy(this.gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+        Destroy(this.gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + delay);
 		
 	}
 
