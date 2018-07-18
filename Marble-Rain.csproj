@@ -237,6 +237,7 @@
     <Compile Include="Assets\Scripts\Animation Scripts\AnimateShadows.cs" />
     <Compile Include="Assets\Scripts\Animation Scripts\AnimateStars.cs" />
     <Compile Include="Assets\Scripts\Animation Scripts\AnimationDestroy.cs" />
+    <Compile Include="Assets\Scripts\Animation Scripts\loopLimit.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameOverScript.cs" />
     <Compile Include="Assets\Scripts\GoldMarble.cs" />
@@ -245,6 +246,7 @@
     <Compile Include="Assets\Scripts\Marble.cs" />
     <Compile Include="Assets\Scripts\MarbleController.cs" />
     <Compile Include="Assets\Scripts\PauseController.cs" />
+    <Compile Include="Assets\Scripts\rushEffect.cs" />
     <Compile Include="Assets\Scripts\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\ShadowFade.cs" />
     <Compile Include="Assets\Scripts\StasisScript.cs" />

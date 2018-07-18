@@ -6,6 +6,16 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class GoldMarble : MonoBehaviour {
 
+    void Start()
+    {
+        if(gameObject.tag == "Rush")
+        {
+            GameManager.instance.spawnedSpecialMarbles.Remove(this);
+            Destroy(this.gameObject, 5.0f);
+        }
+
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.transform.parent.CompareTag("Goal"))
@@ -14,6 +24,10 @@ public class GoldMarble : MonoBehaviour {
             {
                 LivesManager.instance.LoseLife();
                 ScoreManager.instance.ResetMultiplier();
+            }
+            else if (gameObject.tag == "Rush")
+            {
+                //do nothing
             }
             else
             {
@@ -25,4 +39,5 @@ public class GoldMarble : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+
 }

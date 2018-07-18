@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
     private GameObject gameOverScreen;
 
     // Timer variables
-    private float timer;
+    public float timer;
     private int minutes;
     private int seconds;
     private Text timerText;
@@ -132,12 +132,17 @@ public class GameManager : MonoBehaviour {
         timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
     }
 
+    public float GetCurrentTime()
+    {
+        return timer;
+    }
+
     #region Marble Spawning
 
     /*
      * Spawns a random marble at a random location
      */
-    private void SpawnMarble()
+    public void SpawnMarble()
     {
         
         int randomLane = Random.Range(0, xDropPositions.Length); // Choose a drop position out of a list
@@ -160,7 +165,7 @@ public class GameManager : MonoBehaviour {
         //int randomSpecialMarble = Random.Range(0, specialMarblePrefabs.Length);
 
         //Script for testing specific special marbles
-        int randomSpecialMarble = 1;
+        int randomSpecialMarble = 2;
 
         GoldMarble newSpecialMarble = Instantiate(specialMarblePrefabs[randomSpecialMarble], dropPosition, Quaternion.identity); //Should spawn gold marble always currently
         ScoreManager.instance.IncrementGoldMod();
