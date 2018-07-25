@@ -2554,7 +2554,7 @@ Prefab:
         type: 2}
       propertyPath: gameManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 252342496}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0bc86e69321f9e4aa43e7353d95156a, type: 2}
   m_IsPrefabParent: 0

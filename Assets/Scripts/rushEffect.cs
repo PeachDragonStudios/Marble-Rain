@@ -6,50 +6,38 @@ public class rushEffect : MonoBehaviour {
 
     public GameObject rushLetters;
 
-    public GameManager gameManager;
-    //gameManager = GetComponent<GameManager>();
-
-    //private float time;
-
 	// Use this for initialization
 	void Start () {
 
-        Debug.Log("The time is");
-
         Instantiate(rushLetters);
 
-        
-        if(Time.time < 25)
+        if (GameManager.instance.timer < 25)
         {
-            gameManager.SpawnMarble();
-            gameManager.SpawnMarble();
+            GameManager.instance.SpawnMarble();
+            GameManager.instance.SpawnMarble();
         }
-        else if(Time.time >= 25 && Time.time <= 50)
+        else if (GameManager.instance.timer >= 25 && GameManager.instance.timer <= 50)
         {
-            gameManager.SpawnMarble();
-            gameManager.SpawnMarble();
-            gameManager.SpawnMarble();
+            GameManager.instance.SpawnMarble();
+            GameManager.instance.SpawnMarble();
+            GameManager.instance.SpawnMarble();
         }
-        else if(Time.time > 50 && Time.time <= 85)
+        else if (GameManager.instance.timer > 50 && GameManager.instance.timer <= 85)
         {
-            gameManager.SpawnMarble();
-            gameManager.SpawnMarble();
-            gameManager.SpawnMarble();
-            gameManager.SpawnMarble();
+            GameManager.instance.SpawnMarble();
+            GameManager.instance.SpawnMarble();
+            GameManager.instance.SpawnMarble();
+            GameManager.instance.SpawnMarble();
         }
         else
         {
-            gameManager.SpawnMarble();
-            gameManager.SpawnMarble();
-            gameManager.SpawnMarble();
-            gameManager.SpawnMarble();
-            gameManager.SpawnMarble();
+            GameManager.instance.SpawnMarble();
+            GameManager.instance.SpawnMarble();
+            GameManager.instance.SpawnMarble();
+            GameManager.instance.SpawnMarble();
+            GameManager.instance.SpawnMarble();
         }
-	}
 
-    void Update()
-    {
-        //time = GameManager.GetCurrentTime();
     }
 
 }

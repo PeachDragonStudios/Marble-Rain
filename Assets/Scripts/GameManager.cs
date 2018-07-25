@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour {
     private int seconds;
     private Text timerText;
 
+
     // Marble variables
     private float[] xDropPositions = new float[] { -1.18f, -3.41f, 1.1f, 3.35f };
     public float originalGravityScale;
@@ -80,7 +81,10 @@ public class GameManager : MonoBehaviour {
         // Begin the game by bringing time scale up to 1f
         Time.timeScale = 1f;
 
-        //Gold Marble Spawn
+
+        //Special Marble Spawn
+        //Script may not be properly restarting when player hits play again.
+        //May need spawning method similar to one used for regular marbles
         InvokeRepeating("SpawnSpecialMarble", 12f, 15f);
     }
 
@@ -117,6 +121,7 @@ public class GameManager : MonoBehaviour {
 
         // Spawn marbles consistently
         AutoSpawnMarble();
+
     }
 
     /*
@@ -155,26 +160,32 @@ public class GameManager : MonoBehaviour {
         newMarble.GetComponent<Rigidbody2D>().gravityScale = originalGravityScale; // Ensure that the marble has a set gravity scale
     }
 
-    //New for gold marble
+    //New for special marble
     //should be later edited along with GoldMarble.cs to spawn heart and shadow special Marbles
     public void SpawnSpecialMarble()
     {
         int randomLane = Random.Range(0, xDropPositions.Length); //Uses same drop positions as SpawnMarble
         Vector3 dropPosition = new Vector3(xDropPositions[randomLane], 5.8f, 0f); //Same drop positioning as Spawn Marble
 
-        //int randomSpecialMarble = Random.Range(0, specialMarblePrefabs.Length);
+        int randomSpecialMarble = Random.Range(0, specialMarblePrefabs.Length);
 
         //Script for testing specific special marbles
-        int randomSpecialMarble = 2;
+        //int randomSpecialMarble = 2;
 
         GoldMarble newSpecialMarble = Instantiate(specialMarblePrefabs[randomSpecialMarble], dropPosition, Quaternion.identity); //Should spawn gold marble always currently
-        ScoreManager.instance.IncrementGoldMod();
 
+        //Gold marble score increment
+        if(newSpecialMarble.tag == "Gold")
+        {
+            ScoreManager.instance.IncrementGoldMod();
+        }
+        
         spawnedSpecialMarbles.Add(newSpecialMarble); // Add the new spawned marble to a list of current marbles on the board
+
         newSpecialMarble.GetComponent<Rigidbody2D>().gravityScale = originalGravityScale; // Ensure that the marble has a set gravity scale
     }
-    //end new code for gold marble
-
+    //end new code for special marble
+    
 
     /*
      * Will spawn a marble based on time passed and the count of the method called
