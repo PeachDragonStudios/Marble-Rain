@@ -82,10 +82,12 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1f;
 
 
+        AutoSpawnSpecialMarbles();
+
         //Special Marble Spawn
         //Script may not be properly restarting when player hits play again.
         //May need spawning method similar to one used for regular marbles
-        InvokeRepeating("SpawnSpecialMarble", 12f, 15f);
+        //InvokeRepeating("SpawnSpecialMarble", 12f, 15f);
     }
 
     #region Scene Management
@@ -172,7 +174,7 @@ public class GameManager : MonoBehaviour {
         //Script for testing specific special marbles
         //int randomSpecialMarble = 2;
 
-        GoldMarble newSpecialMarble = Instantiate(specialMarblePrefabs[randomSpecialMarble], dropPosition, Quaternion.identity); //Should spawn gold marble always currently
+        GoldMarble newSpecialMarble = Instantiate(specialMarblePrefabs[randomSpecialMarble], dropPosition, Quaternion.identity);
 
         //Gold marble score increment
         if(newSpecialMarble.tag == "Gold")
@@ -229,6 +231,10 @@ public class GameManager : MonoBehaviour {
         else frameCount++;
     }
 
+    private void AutoSpawnSpecialMarbles()
+    {
+        InvokeRepeating("SpawnSpecialMarble", 12f, 15f);
+    }
     #endregion
 
     /*
