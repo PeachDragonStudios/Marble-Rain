@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114844636530879950}
   - component: {fileID: 114336481614482376}
   - component: {fileID: 114253682306047688}
+  - component: {fileID: 114410272651819848}
   m_Layer: 9
   m_Name: Shadow marble
   m_TagString: Shadow
@@ -102,6 +103,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33404dcf94ae54e4186d19f5cba8702c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114410272651819848
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1720293933671776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdae403d6b87cc54c96dd70952137109, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shadows:
+  - {fileID: 1407317531187846, guid: be1487740b4726a40a02c459ac0d4838, type: 2}
+  - {fileID: 1341614938191562, guid: 36238c0b598bc7942a8f0228127f3e3c, type: 2}
+  - {fileID: 1659331327875254, guid: f50287f230d29e047902243e347206d8, type: 2}
 --- !u!114 &114844636530879950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,7 +161,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -83592833
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300002, guid: a2b8079c8d26c754ca78543d2c19583b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

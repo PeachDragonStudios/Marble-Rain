@@ -123,7 +123,6 @@ public class GameManager : MonoBehaviour {
 
         // Spawn marbles consistently
         AutoSpawnMarble();
-
     }
 
     /*
@@ -183,7 +182,6 @@ public class GameManager : MonoBehaviour {
         }
         
         spawnedSpecialMarbles.Add(newSpecialMarble); // Add the new spawned marble to a list of current marbles on the board
-
         newSpecialMarble.GetComponent<Rigidbody2D>().gravityScale = originalGravityScale; // Ensure that the marble has a set gravity scale
     }
     //end new code for special marble
@@ -194,11 +192,7 @@ public class GameManager : MonoBehaviour {
      */
     private void AutoSpawnMarble()
     {
-        if (StasisScript.isTimeStopped) // If the stasis button is pressed, it will not spawn any marbles
-        {
-            return;
-        }
-        else if (frameCount >= 110 && timer <= 15f)
+        if (frameCount >= 110 && timer <= 15f)
         {
             SpawnMarble();
             frameCount = 0;
@@ -234,6 +228,7 @@ public class GameManager : MonoBehaviour {
     private void AutoSpawnSpecialMarbles()
     {
         InvokeRepeating("SpawnSpecialMarble", 12f, 15f);
+        Debug.Log("Spawn special marble");
     }
     #endregion
 
@@ -242,6 +237,8 @@ public class GameManager : MonoBehaviour {
      */
     public void DisplayGameOver()
     {
+        CancelInvoke();
+
         gameOverScoreText.text = "Your Score: " + ScoreManager.instance.totalPoints;
 
         Time.timeScale = 0f;
