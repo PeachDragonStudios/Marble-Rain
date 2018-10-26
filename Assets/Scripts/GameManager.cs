@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour {
 
     private Text gameOverScoreText;
     private GameObject gameOverScreen;
+    private Text highScoreText;
+    public static int highScore;
 
     // Timer variables
     public float timer;
@@ -29,6 +31,7 @@ public class GameManager : MonoBehaviour {
 
     public GoldMarble[] specialMarblePrefabs;
     [HideInInspector] public List<GoldMarble> spawnedSpecialMarbles;
+
 
     #endregion
 
@@ -64,6 +67,7 @@ public class GameManager : MonoBehaviour {
         timerText = GameObject.Find("Timer Text").GetComponent<Text>();
         gameOverScreen = GameObject.Find("Game Over Screen");
         gameOverScoreText = GameObject.Find("Game Over Score").GetComponent<Text>();
+        highScoreText = GameObject.Find("High Score Text").GetComponent<Text>();
         gameOverScreen.SetActive(false);
 
         ScoreManager.instance.ResetScore();  // Reset score
@@ -168,10 +172,10 @@ public class GameManager : MonoBehaviour {
         int randomLane = Random.Range(0, xDropPositions.Length); //Uses same drop positions as SpawnMarble
         Vector3 dropPosition = new Vector3(xDropPositions[randomLane], 5.8f, 0f); //Same drop positioning as Spawn Marble
 
-        int randomSpecialMarble = Random.Range(0, specialMarblePrefabs.Length);
+        //int randomSpecialMarble = Random.Range(0, specialMarblePrefabs.Length);
 
         //Script for testing specific special marbles
-        //int randomSpecialMarble = 2;
+        int randomSpecialMarble = 2;
 
         GoldMarble newSpecialMarble = Instantiate(specialMarblePrefabs[randomSpecialMarble], dropPosition, Quaternion.identity);
 
@@ -238,6 +242,16 @@ public class GameManager : MonoBehaviour {
     public void DisplayGameOver()
     {
         CancelInvoke();
+
+        if(highScore < ScoreManager.instance.totalPoints)
+        {
+            highScore = (int)ScoreManager.instance.totalPoints;
+
+            PlayerPrefs.SetInt("highScore", highScore);
+            PlayerPrefs.Save();
+        }
+
+        highScoreText.text = "" + PlayerPrefs.GetInt("highScore");
 
         gameOverScoreText.text = "Your Score: " + ScoreManager.instance.totalPoints;
 
