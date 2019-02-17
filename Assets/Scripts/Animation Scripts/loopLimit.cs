@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class loopLimit : MonoBehaviour {
 
-    public int loopNum = 3;
+    public int loopNum;
 
     // Use this for initialization
     void Start () {

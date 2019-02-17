@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour {
     private int seconds;
     private Text timerText;
 
+    //PaletteSwap variable
+    public int swap = 0;
 
     // Marble variables
     private float[] xDropPositions = new float[] { -1.18f, -3.41f, 1.1f, 3.35f };
@@ -29,8 +31,8 @@ public class GameManager : MonoBehaviour {
     public Marble[] marblePrefabs;
     [HideInInspector] public List<Marble> spawnedMarbles;
 
-    public GoldMarble[] specialMarblePrefabs;
-    [HideInInspector] public List<GoldMarble> spawnedSpecialMarbles;
+    public SpecialMarbleScript[] specialMarblePrefabs;
+    [HideInInspector] public List<SpecialMarbleScript> spawnedSpecialMarbles;
 
 
     #endregion
@@ -78,6 +80,9 @@ public class GameManager : MonoBehaviour {
         minutes = (int)timer / 60;
         seconds = (int)timer % 60;
         timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
+
+        //Reset PalatteSwap variable
+        swap = 0;
 
         // Reset the number of lives
         LivesManager.instance.ResetLives();
@@ -166,7 +171,7 @@ public class GameManager : MonoBehaviour {
     }
 
     //New for special marble
-    //should be later edited along with GoldMarble.cs to spawn heart and shadow special Marbles
+    //should be later edited along with SpecialMarbleScript.cs to spawn heart and shadow special Marbles
     public void SpawnSpecialMarble()
     {
         int randomLane = Random.Range(0, xDropPositions.Length); //Uses same drop positions as SpawnMarble
@@ -175,14 +180,20 @@ public class GameManager : MonoBehaviour {
         //int randomSpecialMarble = Random.Range(0, specialMarblePrefabs.Length);
 
         //Script for testing specific special marbles
-        int randomSpecialMarble = 2;
+        int randomSpecialMarble = 3;
 
-        GoldMarble newSpecialMarble = Instantiate(specialMarblePrefabs[randomSpecialMarble], dropPosition, Quaternion.identity);
+        SpecialMarbleScript newSpecialMarble = Instantiate(specialMarblePrefabs[randomSpecialMarble], dropPosition, Quaternion.identity);
 
         //Gold marble score increment
         if(newSpecialMarble.tag == "Gold")
         {
             ScoreManager.instance.IncrementGoldMod();
+        }
+
+        if(newSpecialMarble.tag == "PaletteSwap")
+        {
+            if (swap == 0) swap = 1;
+            else swap = 0;
         }
         
         spawnedSpecialMarbles.Add(newSpecialMarble); // Add the new spawned marble to a list of current marbles on the board

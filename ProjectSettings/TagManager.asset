@@ -12,6 +12,7 @@ TagManager:
   - Gold
   - Shadow
   - Rush
+  - PaletteSwap
   layers:
   - Default
   - TransparentFX
