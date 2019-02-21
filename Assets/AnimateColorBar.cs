@@ -8,11 +8,13 @@ public class AnimateColorBar : MonoBehaviour {
 
     Vector3 spawnLocation = new Vector3(0, 0, 0);
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
-        GameObject SpawnedColorBar = Instantiate(colorBar, spawnLocation, Quaternion.identity);
+        Instantiate(colorBar, spawnLocation, Quaternion.identity);
 
-	}
+        //Instantiate(colorBar);
+
+    }
 	
 }

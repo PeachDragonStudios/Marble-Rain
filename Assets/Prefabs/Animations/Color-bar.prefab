@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4214738822907514}
   - component: {fileID: 212940106962880534}
   - component: {fileID: 95515947823226162}
-  - component: {fileID: 114420899543706576}
+  - component: {fileID: 114228152267057372}
   m_Layer: 10
   m_Name: Color-bar
   m_TagString: Untagged
@@ -59,7 +59,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114420899543706576
+--- !u!114 &114228152267057372
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

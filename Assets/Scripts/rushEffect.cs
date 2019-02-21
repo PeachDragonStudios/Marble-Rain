@@ -4,70 +4,70 @@ using UnityEngine;
 
 public class rushEffect : MonoBehaviour {
 
-    private IEnumerator coroutine;
-
     public GameObject rushLetters;
+
+    //Not elegant but this is what keeps track of the spawning for rush
+    private int count = 0;
 
 	// Use this for initialization
 	void Start () {
 
-        //TimeDelay not currently working, probably because waitForSeconds
-        //Doesn't immediately take action, might need to add loop to make sure time delay happens.
-
-        //coroutine = TimeDelay(2.0f);
-
         Instantiate(rushLetters);
 
+        Destroy(gameObject, 4);
+
+    }
+
+    void FixedUpdate()
+    {
         if (GameManager.instance.timer < 25)
         {
-            GameManager.instance.SpawnMarble();
-            //StartCoroutine(coroutine);
-            TimeDelay(3);
-            GameManager.instance.SpawnMarble();
-            TimeDelay(3);
+            if(count == 39)
+            {
+                GameManager.instance.SpawnMarble();
+                count = 0;
+            }
+            else
+            {
+                count++;
+            }
+            
         }
         else if (GameManager.instance.timer >= 25 && GameManager.instance.timer <= 50)
         {
-            GameManager.instance.SpawnMarble();
-            TimeDelay(3);
-            GameManager.instance.SpawnMarble();
-            TimeDelay(3);
-            GameManager.instance.SpawnMarble();
-            TimeDelay(3);
+            if (count == 52)
+            {
+                GameManager.instance.SpawnMarble();
+                count = 0;
+            }
+            else
+            {
+                count++;
+            }
         }
         else if (GameManager.instance.timer > 50 && GameManager.instance.timer <= 85)
         {
-            GameManager.instance.SpawnMarble();
-            TimeDelay(3);
-            GameManager.instance.SpawnMarble();
-            TimeDelay(3);
-            GameManager.instance.SpawnMarble();
-            TimeDelay(3);
-            GameManager.instance.SpawnMarble();
-            TimeDelay(3);
+            if (count == 39)
+            {
+                GameManager.instance.SpawnMarble();
+                count = 0;
+            }
+            else
+            {
+                count++;
+            }
         }
         else
         {
-            GameManager.instance.SpawnMarble();
-            TimeDelay(3);
-            GameManager.instance.SpawnMarble();
-            TimeDelay(3);
-            GameManager.instance.SpawnMarble();
-            TimeDelay(3);
-            GameManager.instance.SpawnMarble();
-            TimeDelay(3);
-            GameManager.instance.SpawnMarble();
-            TimeDelay(3);
-        }
-
-    }
-
-    private IEnumerator TimeDelay(float waitTime)
-    {
-        while (true)
-        {
-            yield return new WaitForSecondsRealtime(waitTime);
+            if (count == 31)
+            {
+                GameManager.instance.SpawnMarble();
+                count = 0;
+            }
+            else
+            {
+                count++;
+            }
         }
     }
-
 }

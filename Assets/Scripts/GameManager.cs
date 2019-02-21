@@ -180,7 +180,7 @@ public class GameManager : MonoBehaviour {
         //int randomSpecialMarble = Random.Range(0, specialMarblePrefabs.Length);
 
         //Script for testing specific special marbles
-        int randomSpecialMarble = 3;
+        int randomSpecialMarble = 2;
 
         SpecialMarbleScript newSpecialMarble = Instantiate(specialMarblePrefabs[randomSpecialMarble], dropPosition, Quaternion.identity);
 
