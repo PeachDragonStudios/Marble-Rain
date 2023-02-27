@@ -177,10 +177,10 @@ public class GameManager : MonoBehaviour {
         int randomLane = Random.Range(0, xDropPositions.Length); //Uses same drop positions as SpawnMarble
         Vector3 dropPosition = new Vector3(xDropPositions[randomLane], 5.8f, 0f); //Same drop positioning as Spawn Marble
 
-        //int randomSpecialMarble = Random.Range(0, specialMarblePrefabs.Length);
+        int randomSpecialMarble = Random.Range(0, specialMarblePrefabs.Length);
 
         //Script for testing specific special marbles
-        int randomSpecialMarble = 2;
+        //int randomSpecialMarble = 1;
 
         SpecialMarbleScript newSpecialMarble = Instantiate(specialMarblePrefabs[randomSpecialMarble], dropPosition, Quaternion.identity);
 

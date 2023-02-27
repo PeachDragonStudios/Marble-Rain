@@ -1,7 +1,7 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marble-Rain", "Marble-Rain.csproj", "{E1D30705-E691-C591-B76F-E3964EFD4FEF}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{6A367F9E-6384-AA9D-B749-10CDA8EA894F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E1D30705-E691-C591-B76F-E3964EFD4FEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E1D30705-E691-C591-B76F-E3964EFD4FEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E1D30705-E691-C591-B76F-E3964EFD4FEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E1D30705-E691-C591-B76F-E3964EFD4FEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A367F9E-6384-AA9D-B749-10CDA8EA894F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A367F9E-6384-AA9D-B749-10CDA8EA894F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A367F9E-6384-AA9D-B749-10CDA8EA894F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A367F9E-6384-AA9D-B749-10CDA8EA894F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
